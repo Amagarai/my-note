@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-size: 14px;">Nouvelle note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="ion-text-center">
+    <ion-item class="norm">
+      <ion-input placeholder="Titre"></ion-input>
+    </ion-item>
+
+    <ion-item class="norm">
+      <ion-label>Date</ion-label>
+      <ion-input type="date"></ion-input>
+    </ion-item>
+
+    <ion-item  class="norm">
+      <ion-select placeholder="Categorie">
+        <ion-select-option value="apples">Apples</ion-select-option>
+        <ion-select-option value="oranges">Oranges</ion-select-option>
+        <ion-select-option value="bananas">Bananas</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <textarea placeholder="Contenu..."></textarea>
+    <ion-button type="submit" fill="clear">Ajouter</ion-button>
+  </form>
+</ion-content>

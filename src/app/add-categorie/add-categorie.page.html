@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajout de la categorie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment [value]="segment" (ionChange)="Evenement($event)">
+    <ion-segment-button value="add">
+      <ion-label>Ajout</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="list">
+      <ion-label>Ma liste</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="add" *ngIf="segment === 'add'">
+    <div class="text ion-text-center">
+      <ion-input placeholder="Nom"></ion-input>
+    </div>
+    <div class="ion-text-center" style="margin-top: 20px;">
+      <ion-button fill="clear">Ajouter</ion-button>
+    </div>
+  </div>
+
+  <div class="liste ion-text-center" *ngIf="segment ==='list'">
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
+  </div>
+</ion-content>

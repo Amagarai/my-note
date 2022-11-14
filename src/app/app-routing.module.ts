@@ -40,6 +40,14 @@ const routes: Routes = [
     path: 'preview',
     loadChildren: () => import('./preview/preview.module').then( m => m.PreviewPageModule)
   },
+  {
+    path: 'update-pass',
+    loadChildren: () => import('./update-pass/update-pass.module').then( m => m.UpdatePassPageModule)
+  },
+  {
+    path: 'edit-compte',
+    loadChildren: () => import('./edit-compte/edit-compte.module').then( m => m.EditComptePageModule)
+  },
 ];
 
 @NgModule({

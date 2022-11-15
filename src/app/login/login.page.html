@@ -4,14 +4,14 @@
     <p>My Note</p>
   </div>
   <div class="champ ion-text-center">
-    <form class="ion-text-center">
+    <form class="ion-text-center" #data="ngForm" (ngSubmit)="Login(data)">
       <ion-item lines="none">
-        <ion-input placeholder="Pseudo"></ion-input>
+        <ion-input placeholder="Pseudo" name="pseudo" ngModel></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input placeholder="Mot de passe"></ion-input>
+        <ion-input type="password" placeholder="Mot de passe" name="pass" ngModel></ion-input>
       </ion-item>
-      <ion-button fill="clear">Connexion</ion-button>
+      <ion-button type="submit" fill="clear">Connexion</ion-button>
     </form>
   </div>
   <p style="margin-left: 12px; margin-top:20px">

@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilPage implements OnInit {
 
+  user: any
   constructor() { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage['data'])
   }
 
 }

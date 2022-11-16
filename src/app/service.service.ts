@@ -30,4 +30,9 @@ export class ServiceService {
   AddNote(id: number, data: any){
     return this.http.post(this.host+"note/add/"+id, data)
   }
+
+  //----Liste des categorie
+  ListCate(id: number){
+    return this.http.get(this.host+"cate/list/"+id)
+  }
 }

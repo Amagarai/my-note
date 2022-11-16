@@ -18,21 +18,17 @@
   </ion-segment>
 
   <div class="add" *ngIf="segment === 'add'">
-    <div class="text ion-text-center">
-      <ion-input placeholder="Nom"></ion-input>
-    </div>
-    <div class="ion-text-center" style="margin-top: 20px;">
-      <ion-button fill="clear">Ajouter</ion-button>
-    </div>
+    <form #data="ngForm" (ngSubmit)="addCate(data)">
+      <div class="text ion-text-center">
+        <ion-input placeholder="Nom" name="nom" ngModel [(ngModel)]="nom"></ion-input>
+      </div>
+      <div class="ion-text-center" style="margin-top: 20px;">
+        <ion-button type="submit" fill="clear">Ajouter</ion-button>
+      </div>
+    </form>
   </div>
 
   <div class="liste ion-text-center" *ngIf="segment ==='list'">
-    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
-    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
-    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
-    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
-    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
-    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
-    <ion-card class="ion-text-center" style="padding: 10px; color: #000">Nom de l'activiter</ion-card>
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000" *ngFor="let i of List">{{i.nom}}</ion-card>
   </div>
 </ion-content>

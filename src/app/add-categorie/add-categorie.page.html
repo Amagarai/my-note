@@ -29,6 +29,13 @@
   </div>
 
   <div class="liste ion-text-center" *ngIf="segment ==='list'">
-    <ion-card class="ion-text-center" style="padding: 10px; color: #000" *ngFor="let i of List">{{i.nom}}</ion-card>
+    <ion-card class="ion-text-center" style="padding: 10px; color: #000" *ngFor="let i of List" (click)="ViewDetail(i.id, i)">
+      <span style="font-weight: bold;">{{i.nom}}</span>
+      <div *ngIf="i.detail === true">
+        <p>Nombre d'utilisation: {{i.utilisation}}</p>
+        <p>Date d'ajout: {{i.date}} </p>
+      </div>
+
+    </ion-card>
   </div>
 </ion-content>

@@ -44,6 +44,12 @@ export class AddCategoriePage implements OnInit {
     })
   }
 
+  ViewDetail(id: number, cate: any){
+    return this.service.ViewDetail(id, cate).subscribe(res =>{
+      this.ListCategorie()
+    });
+  }
+
   async presentToast(mess:string) {
     const toast = await this.toast.create({
       message: mess,

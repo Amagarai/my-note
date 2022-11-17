@@ -35,4 +35,9 @@ export class ServiceService {
   ListCate(id: number){
     return this.http.get(this.host+"cate/list/"+id)
   }
+
+  //---Pour voir les details des activité
+  ViewDetail(id: number, categorie: any){
+    return this.http.put(this.host+"cate/detail/"+id, categorie)
+  }
 }

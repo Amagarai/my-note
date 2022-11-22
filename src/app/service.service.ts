@@ -27,8 +27,13 @@ export class ServiceService {
   }
 
   //----Ajouter une note
-  AddNote(id: number, data: any){
-    return this.http.post(this.host+"note/add/"+id, data)
+  AddNote(id: number,id_cate: number, data: any){
+    return this.http.post(this.host+"note/add/"+id+"/"+id_cate, data)
+  }
+
+  //-----List des notes
+  myNote(id: number){
+    return this.http.get(this.host+"note/mynote/"+id);
   }
 
   //----Liste des categorie

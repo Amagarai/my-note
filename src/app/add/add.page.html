@@ -8,25 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <form class="ion-text-center">
+  <form class="ion-text-center" #data="ngForm" (ngSubmit)="AddNote(data)">
     <ion-item class="norm">
-      <ion-input placeholder="Titre"></ion-input>
+      <ion-input placeholder="Titre" name="titre" ngModel [(ngModel)]="titre"></ion-input>
     </ion-item>
 
     <ion-item class="norm">
       <ion-label>Date</ion-label>
-      <ion-input type="date"></ion-input>
+      <ion-input type="date" name="date" ngModel [(ngModel)]="date"></ion-input>
     </ion-item>
 
     <ion-item  class="norm">
-      <ion-select placeholder="Categorie">
-        <ion-select-option value="apples">Apples</ion-select-option>
-        <ion-select-option value="oranges">Oranges</ion-select-option>
-        <ion-select-option value="bananas">Bananas</ion-select-option>
+      <ion-select placeholder="Categorie" ngModel name="id_cate" [(ngModel)]="categorie">
+          <ion-select-option *ngFor="let i of user.categories" [value]="i.id">{{i.nom}}</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <textarea placeholder="Contenu..."></textarea>
+    <textarea placeholder="Contenu..." name="contenu" ngModel [(ngModel)]="contenu"></textarea>
     <ion-button type="submit" fill="clear">Ajouter</ion-button>
   </form>
 </ion-content>

@@ -7,7 +7,7 @@
       <div class="profile ion-text-center">
           <img src="../../assets/person.png" alt="">
       </div>
-      <p style="font-size: small; color: blue;" class="ion-text-center">Modifier la photo de profile</p>
+      <p style="font-size: small; color: blue;" class="ion-text-center"></p>
 
       <ion-grid>
           <!-- ----------------------------------------Nom---H------------  -->
@@ -17,7 +17,7 @@
               </ion-col>
               <ion-col size="5">
                   <ion-item lines="none">
-                      <ion-input type="text" name="nom" placeholder="Melou"></ion-input>
+                      <ion-input type="text" name="nom" [(ngModel)]="user.pseudo"></ion-input>
                   </ion-item>
               </ion-col>
           </ion-row>
@@ -25,11 +25,11 @@
           <!-- ----------------------------------------Prenom---------------  -->
           <ion-row>
               <ion-col size="3" class="ion-text-wrap">
-                  <label for="">Prenom</label>
+                  <label for="">Nom</label>
               </ion-col>
               <ion-col size="5">
                   <ion-item lines="none">
-                      <ion-input type="text" name="prenom" placeholder="Meou"></ion-input>
+                      <ion-input type="text" name="prenom" placeholder="Nom complet"></ion-input>
                   </ion-item>
               </ion-col>
           </ion-row>

@@ -20,7 +20,7 @@
   </div>
 
   <div class="card">
-    <ion-card routerLink="/detail" *ngFor="let i of List">
+    <ion-card *ngFor="let i of List" routerLink="/detail/{{i.id}}">
       <ion-card-title class="ion-text-center" style="padding-bottom: 8px;">{{i.titre}}</ion-card-title>
       <ion-card-content>
         <div class="flex">

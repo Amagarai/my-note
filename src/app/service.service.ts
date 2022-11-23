@@ -45,4 +45,14 @@ export class ServiceService {
   ViewDetail(id: number, categorie: any){
     return this.http.put(this.host+"cate/detail/"+id, categorie)
   }
+
+  //----Detail des notes
+  Detail(id: number){
+    return this.http.get(this.host+"note/"+id);
+  }
+
+  //------- MOdifier le mot de passe du user
+  updatePass(id: number, user: any){
+    return this.http.put(this.host+"user/update/"+id, user);
+  }
 }

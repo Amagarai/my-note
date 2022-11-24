@@ -14,7 +14,17 @@
       <p class="nom">{{note?.titre}}</p>
       <p class="date">{{note?.date}}</p>
     </div>
-    <div class="contenu">
-      {{note?.contenu}}
-    </div>
+
+    <form [formGroup]="noteContenu">
+      <div class="contenu" (click)="changeDisable()">
+        <textarea [disabled]="disable" formControlName="contenu" [value]="note?.contenu"></textarea>
+      </div>
+
+      <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="disable === false">
+        <ion-fab-button color="secondary" (click)="upadateNote()">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </form>
   </div>
+</ion-content>

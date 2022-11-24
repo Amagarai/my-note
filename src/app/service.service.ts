@@ -55,4 +55,9 @@ export class ServiceService {
   updatePass(id: number, user: any){
     return this.http.put(this.host+"user/update/"+id, user);
   }
+
+  //_------Pour modifier une note
+  updateNote(id: number, note: any){
+    return this.http.put(this.host+"note/update/"+id, note);
+  }
 }

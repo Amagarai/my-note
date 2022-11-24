@@ -32,4 +32,13 @@ ion-content{
     padding-left: 23px;
     // color: #1F70BC;
   }
+  textarea{
+    border: none;
+    width: 100%;
+    height: 400px;
+    resize: none;
+  }
+  textarea:focus {
+    outline: none !important;
+ }
 }

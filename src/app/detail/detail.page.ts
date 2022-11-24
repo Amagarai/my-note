@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -15,7 +16,7 @@ disable: boolean = true;
 noteContenu = new FormGroup({
   contenu: new FormControl(),
 });
-  constructor(private service: ServiceService, private active: ActivatedRoute) { }
+  constructor(private service: ServiceService, private active: ActivatedRoute, private toastController: ToastController) { }
 
   ngOnInit() {
     this.Id = this.active.snapshot.params['id'];
@@ -34,7 +35,19 @@ noteContenu = new FormGroup({
       this.disable = true
       this.service.Detail(this.Id).subscribe(result=>{
         this.note = result
+        this.presentToast("Note modifiée","happy","success")
       })
     })
+  }
+
+  async presentToast(text: string, icon: string, color: string) {
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 4000,
+      icon: icon,
+      position: 'top',
+      color: color
+    });
+    toast.present();
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -16,7 +16,8 @@ disable: boolean = true;
 noteContenu = new FormGroup({
   contenu: new FormControl(),
 });
-  constructor(private service: ServiceService, private active: ActivatedRoute, private toastController: ToastController) { }
+  constructor(private service: ServiceService, private active: ActivatedRoute,
+     private toastController: ToastController, private alert: AlertController, private router: Router) { }
 
   ngOnInit() {
     this.Id = this.active.snapshot.params['id'];
@@ -49,5 +50,34 @@ noteContenu = new FormGroup({
       color: color
     });
     toast.present();
+  }
+
+  delete(){
+    return this.service.delete(this.Id, this.note).subscribe(res =>{
+      this.router.navigate(['home'])
+    })
+  }
+
+  async presentAlert() {
+    const alert = await this.alert.create({
+      header: "Attention",
+      mode: 'ios',
+      cssClass: 'my-custom-class',
+      message: '<b style="color:#FF0000">Voulez-vous vraimen</b>',
+      buttons: [
+        {
+          text: "Non",
+          role: 'cancel',
+          cssClass: 'danger',
+        }, {
+          text: "Oui",
+          handler: () => {
+           this.delete();
+          }
+        }
+      ],
+    });
+
+    await alert.present();
   }
 }

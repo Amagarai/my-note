@@ -60,4 +60,9 @@ export class ServiceService {
   updateNote(id: number, note: any){
     return this.http.put(this.host+"note/update/"+id, note);
   }
+
+  //------- Delete note
+  delete(id:number, note: any){
+    return this.http.put(this.host+"note/delete/"+id, note);
+  }
 }

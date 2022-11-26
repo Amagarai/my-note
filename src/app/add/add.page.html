@@ -19,7 +19,7 @@
     </ion-item>
 
     <ion-item  class="norm">
-      <ion-select placeholder="Categorie" ngModel name="id_cate" [(ngModel)]="categorie">
+      <ion-select #select placeholder="Categorie" ngModel name="id_cate" [(ngModel)]="categorie">
           <ion-select-option *ngFor="let i of user.categories" [value]="i.id">{{i.nom}}</ion-select-option>
       </ion-select>
     </ion-item>

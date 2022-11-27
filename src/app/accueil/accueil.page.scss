@@ -1,0 +1,28 @@
+ion-title{
+  font-family: Jockey One;
+  font-weight: bold;
+}
+.head{
+  ion-avatar{
+    display: block;
+    float: right;
+  }
+}
+.btn{
+  margin-top: 50px;
+  ion-button{
+    border-radius: 15px;
+    height: 20px;
+  }
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+.statut{
+  margin-top: 9px;
+  display: flex;
+}
+ion-card-title{
+  font-size: 14px;
+}

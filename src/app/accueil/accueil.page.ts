@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-accueil',
+  templateUrl: './accueil.page.html',
+  styleUrls: ['./accueil.page.scss'],
 })
-export class HomePage implements OnInit{
+export class AccueilPage implements OnInit {
+
 
   user: any;
   List: any;

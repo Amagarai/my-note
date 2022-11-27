@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
@@ -9,22 +9,27 @@ import { ServiceService } from '../service.service';
   templateUrl: './detail.page.html',
   styleUrls: ['./detail.page.scss'],
 })
-export class DetailPage implements OnInit {
+export class DetailPage implements OnInit{
 Id: number;
 note: any;
 disable: boolean = true;
 noteContenu = new FormGroup({
-  contenu: new FormControl(),
+  contenu: new FormControl(Validators.minLength(2)),
 });
   constructor(private service: ServiceService, private active: ActivatedRoute,
      private toastController: ToastController, private alert: AlertController, private router: Router) { }
 
+
   ngOnInit() {
     this.Id = this.active.snapshot.params['id'];
+    console.log(this.Id);
+
     this.service.Detail(this.Id).subscribe(res=>{
       this.note = res
     })
   }
+
+
 
   changeDisable(){
     this.disable = false;

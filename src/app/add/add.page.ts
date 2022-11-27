@@ -23,13 +23,13 @@ export class AddPage implements OnInit {
 
   AddNote(donne){
     return this.service.AddNote(this.user.id, donne.value.id_cate, donne.value).subscribe(result =>{
-      this.router.navigate(['home'])
       this.presentToast('La note a été créé avec success....','happy','success');
       this.titre = '';
       this.date = '';
       this.contenu = '';
       this.categorie = '';
       this.selectRef.placeholder = 'Categorie'
+      this.router.navigate(['home'])
     })
   }
   async presentToast(text: string, icon: string, color: string) {

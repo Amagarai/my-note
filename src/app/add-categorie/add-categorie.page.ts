@@ -15,8 +15,10 @@ export class AddCategoriePage implements OnInit {
   List: any;
   constructor(private service: ServiceService, private toast: ToastController, private alert: AlertController) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.user = JSON.parse(localStorage['data'])
+    console.log(this.user);
+
     this.ListCategorie();
   }
 

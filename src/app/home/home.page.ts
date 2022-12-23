@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -11,9 +11,8 @@ export class HomePage implements OnInit{
   user: any;
   List: any;
   length: number;
-  constructor(private service: ServiceService) {
 
-  }
+  constructor(private service: ServiceService) {}
 
   ngOnInit(){
     this.user = JSON.parse(localStorage['data']);

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AccueilPageRoutingModule } from './accueil-routing.module';
 
 import { AccueilPage } from './accueil.page';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AccueilPageRoutingModule
+    AccueilPageRoutingModule,
+    SwiperModule
   ],
   declarations: [AccueilPage]
 })

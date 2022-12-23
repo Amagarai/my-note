@@ -45,7 +45,7 @@ const routes: Routes = [
     loadChildren: () => import('./update-pass/update-pass.module').then( m => m.UpdatePassPageModule)
   },
   {
-    path: 'edit-compte',
+    path: 'edit-compte/:id',
     loadChildren: () => import('./edit-compte/edit-compte.module').then( m => m.EditComptePageModule)
   },
   {

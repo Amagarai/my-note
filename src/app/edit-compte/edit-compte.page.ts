@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -9,16 +10,25 @@ import { ServiceService } from '../service.service';
 export class EditComptePage implements OnInit {
 
   user: any;
-  constructor(private service: ServiceService) { }
+  person: any;
+  constructor(private service: ServiceService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage['data'])
-    console.log(this.user);
-
+    this.user = JSON.parse(localStorage['data']);
+    this.Detail();
   }
 
   updateUser(data){
+    return this.service.UpdateCompte(this.user.id, data.value).subscribe(res =>{
+      console.log(res);
+    })
+  }
 
+  Detail(){
+    this.service.FindUser(this.user.id).subscribe(res =>{
+      this.person = res
+      console.log(this.person);
+    })
   }
 
 }

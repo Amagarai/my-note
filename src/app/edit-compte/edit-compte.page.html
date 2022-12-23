@@ -17,7 +17,7 @@
               </ion-col>
               <ion-col size="5">
                   <ion-item lines="none">
-                      <ion-input type="text" name="nom" [(ngModel)]="user.pseudo"></ion-input>
+                      <ion-input type="text" ngModel name="pseudo" [(ngModel)]="user.pseudo"></ion-input>
                   </ion-item>
               </ion-col>
           </ion-row>
@@ -29,7 +29,7 @@
               </ion-col>
               <ion-col size="5">
                   <ion-item lines="none">
-                      <ion-input type="text" name="prenom" placeholder="Nom complet"></ion-input>
+                      <ion-input type="text" ngModel name="nomComplet" [(ngModel)]="user.nomComplet" placeholder="Nom complet"></ion-input>
                   </ion-item>
               </ion-col>
           </ion-row>
@@ -41,7 +41,7 @@
               </ion-col>
               <ion-col size="5">
                   <ion-item lines="none">
-                      <ion-input type="text" name="numero" placeholder="numero"></ion-input>
+                      <ion-input type="text" ngModel name="numero" [(ngModel)]="user.pseudo" placeholder="numero"></ion-input>
                   </ion-item>
               </ion-col>
           </ion-row>

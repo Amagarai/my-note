@@ -12,6 +12,7 @@ export class ProfilPage implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage['data'])
+    console.log(this.user);
   }
 
 }

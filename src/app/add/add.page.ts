@@ -15,10 +15,12 @@ export class AddPage implements OnInit {
   date: string;
   contenu: string;
   categorie: string;
+  cate: any;
   constructor(private service: ServiceService, private toastController: ToastController, private router:Router) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage['data'])
+    this.user = JSON.parse(localStorage['data']);
+    this.ListCate();
   }
 
   AddNote(donne){
@@ -29,9 +31,21 @@ export class AddPage implements OnInit {
       this.contenu = '';
       this.categorie = '';
       this.selectRef.placeholder = 'Categorie'
-      this.router.navigate(['home'])
+
+      this.service.FindUser(this.user.id).subscribe(res =>{
+        let data : any = res;
+        localStorage.setItem("data", JSON.stringify(data))
+        this.router.navigate(['home'])
+      })
     })
   }
+
+  ListCate(){
+    return this.service.ListCate(this.user.id).subscribe(res=>{
+      this.cate = res
+    })
+  }
+
   async presentToast(text: string, icon: string, color: string) {
     const toast = await this.toastController.create({
       message: text,

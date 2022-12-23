@@ -21,6 +21,11 @@ export class ServiceService {
     return this.http.get(this.host+"user/login/"+pesudo+"/"+pass);
   }
 
+  //------Trouver un user par son id;
+  FindUser(id: number){
+    return this.http.get(this.host+"user/"+id);
+  }
+
   //---Ajouter les categorie
   AddCategorie(id:number, data: any){
     return this.http.post(this.host+"cate/add/"+id, data)
@@ -64,5 +69,10 @@ export class ServiceService {
   //------- Delete note
   delete(id:number, note: any){
     return this.http.put(this.host+"note/delete/"+id, note);
+  }
+
+  //-----Modifier et ajouter un numero et nom complet
+  UpdateCompte(id: number, user: any){
+    return this.http.put(this.host+"user/new/"+id, user);
   }
 }

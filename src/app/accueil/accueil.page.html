@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="ion-text-center">
       My note
     </ion-title>
   </ion-toolbar>
@@ -14,14 +14,19 @@
   </div>
 
   <div class="btn">
-    <ion-button fill="clear" style="background-color: rgb(23, 220, 23); color: black;">Sport</ion-button>
-    <ion-button fill="clear" style="background-color: rgb(12, 153, 208); color: black;">Musique</ion-button>
-    <ion-button fill="clear" style="background-color: rgb(214, 224, 20); color: black;">école</ion-button>
+    <swiper [slidesPerView]="3">
+      <ng-template swiperSlide *ngFor="let i of cate"><ion-button fill="clear" style="background-color: rgb(23, 220, 23); color: black;">{{i.nom}}</ion-button></ng-template>
+    </swiper>
   </div>
+  <!-- affichache normale -->
+  <div class="normal">
+
+  </div>
+
   <img src="../../assets/vide.png" alt="" srcset="" *ngIf="length === 0">
   <div class="card">
-    <ion-card *ngFor="let i of List" routerLink="/detail/{{i.id}}">
-      <ion-card-title class="ion-text-center" style="padding-bottom: 8px;">{{i.titre}}</ion-card-title>
+    <ion-card *ngFor="let i of user.notes" routerLink="/detail/{{i.id}}">
+      <ion-card-title class="ion-text-center" style="padding-bottom: 8px;">{{i?.titre}}</ion-card-title>
       <ion-card-content>
         <div class="flex">
           <div class="bouton">

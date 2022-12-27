@@ -15,6 +15,8 @@ export class AccueilPage implements OnInit {
   List: any;
   length: number;
   cate: any
+  list_cate : any;
+  search: boolean = false;
   constructor( private service: ServiceService ) {}
 
   ngOnInit(){
@@ -36,5 +38,18 @@ export class AccueilPage implements OnInit {
     return this.service.ListCate(this.user.id).subscribe(res=>{
       this.cate = res
     })
+  }
+
+  NoteByCate(id :number){
+    return this.service.findBtCate(id, this.user.id).subscribe(res =>{
+      this.list_cate = res;
+      console.log(res);
+
+      this.search = true;
+    })
+  }
+
+  normalAcceuil(){
+    this.search = false;
   }
 }

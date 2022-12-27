@@ -26,6 +26,10 @@ export class ServiceService {
     return this.http.get(this.host+"user/"+id);
   }
 
+  //Trouver par categorie
+  findBtCate(id: number, user: number){
+    return this.http.get(this.host+"note/liste/"+id+"/"+user)
+  }
   //---Ajouter les categorie
   AddCategorie(id:number, data: any){
     return this.http.post(this.host+"cate/add/"+id, data)

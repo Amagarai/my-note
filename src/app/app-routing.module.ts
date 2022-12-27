@@ -3,11 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'de',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-
-  {
     path: 'detail/:id',
     loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
   },
@@ -28,17 +23,17 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: '',
-    redirectTo: 'preview',
-    pathMatch: 'full'
-  },
-  {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'preview',
     loadChildren: () => import('./preview/preview.module').then( m => m.PreviewPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'preview',
+    pathMatch: 'full'
   },
   {
     path: 'update-pass',
@@ -50,7 +45,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
 ];
 

@@ -21,16 +21,16 @@ export class AccueilPage implements OnInit {
 
   ngOnInit(){
     this.user = JSON.parse(localStorage['data']);
-    console.log(this.user);
     this.myNote();
     this.ListCate()
+    console.log("acceuil");
+
   }
 
 
   myNote(){
     return this.service.myNote(this.user.id).subscribe(res =>{
       this.List = res
-      console.log(res);
       this.length = this.List.length;
     })
   }
@@ -42,14 +42,18 @@ export class AccueilPage implements OnInit {
 
   NoteByCate(id :number){
     return this.service.findBtCate(id, this.user.id).subscribe(res =>{
-      this.list_cate = res;
-      console.log(res);
-
+      this.list_cate = res
       this.search = true;
     })
   }
 
   normalAcceuil(){
     this.search = false;
+  }
+
+  refresh(){
+    this.myNote();
+    this.ListCate()
+    this.search = false
   }
 }

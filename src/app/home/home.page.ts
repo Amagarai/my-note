@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SwiperComponent } from 'swiper/angular';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -8,18 +9,23 @@ import { ServiceService } from '../service.service';
 })
 export class HomePage implements OnInit{
 
+  @ViewChild('swiper') swiper : SwiperComponent
+
   user: any;
   List: any;
   length: number;
+  cate: any
   list_cate : any;
   search: boolean = false;
-  constructor(private service: ServiceService) {}
+  constructor( private service: ServiceService ) {}
 
   ngOnInit(){
     this.user = JSON.parse(localStorage['data']);
-    console.log(this.user);
     this.myNote();
+    this.ListCate()
+    console.log("home");
   }
+
 
   myNote(){
     return this.service.myNote(this.user.id).subscribe(res =>{
@@ -27,7 +33,11 @@ export class HomePage implements OnInit{
       this.length = this.List.length;
     })
   }
-
+  ListCate(){
+    return this.service.ListCate(this.user.id).subscribe(res=>{
+      this.cate = res
+    })
+  }
 
   NoteByCate(id :number){
     return this.service.findBtCate(id, this.user.id).subscribe(res =>{
@@ -38,6 +48,12 @@ export class HomePage implements OnInit{
 
   normalAcceuil(){
     this.search = false;
+  }
+
+  refresh(){
+    this.myNote();
+    this.ListCate()
+    this.search = false
   }
 
 }
